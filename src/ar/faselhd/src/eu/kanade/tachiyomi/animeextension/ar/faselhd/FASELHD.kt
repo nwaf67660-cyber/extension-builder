@@ -149,7 +149,7 @@ class FASELHD : ConfigurableAnimeSource, ParsedAnimeHttpSource() {
                         val script = doc.selectFirst("script:containsData(video), script:containsData(mainPlayer)")?.data()
                             ?.let(Deobfuscator::deobfuscateScript) ?: ""
                         videoRegex.find(script)?.value?.let { playlist ->
-                            playlistUtils.extractFromHls(it)
+                            playlistUtils.extractFromHls(playlist)
                         } ?: emptyList()
                     }
                 } else {
